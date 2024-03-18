@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :recipes, only: [:index, :show] do
+    collection do
+      get 'search_by_ingredient'
+      get 'search_by_utensil'
+    end
+  end
 end
